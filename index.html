@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記念日表示サイト</title>
+    <script>
+        function displayDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1; // 月は0から始まるので+1
+            const day = today.getDate();
+            const todayStr = `${month}/${day}`; // MM/DD 形式で比較
+
+            // 記念日リスト（MM/DD: メッセージ）
+            const anniversaries = {
+                "5/6": "🎊 今日はゆきらわさんの誕生日です！🎉",
+                "8/31": "🎊 今日はるいさんの誕生日です！🎉",
+                "5/20": "🎊 今日はしかゆさんの誕生日です！🎉",
+                "9/17": "🎊 今日はちび式じいさんの誕生日です！🎉",
+                "3/5": "🎊 今日はじばさんの誕生日です！🎉",
+                "6/6": "🎊 今日は削除くんさんの誕生日です！🎉",
+                "10/20": "🎊 今日はサーバー建設記念日です！🎉",
+                "12/25": "🎄 メリークリスマス！🎁"
+            };
+
+            let message = `今日は${year}年${month}月${day}日です。`;
+
+            // 記念日チェック
+            if (anniversaries[todayStr]) {
+                message += " " + anniversaries[todayStr];
+            }
+
+            document.getElementById("dateDisplay").innerText = message;
+        }
+    </script>
+</head>
+<body onload="displayDate()">
+    <h1 id="dateDisplay"></h1>
+</body>
+</html>
